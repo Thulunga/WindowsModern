@@ -1,0 +1,29 @@
+# This file was automatically added by Soti.CodeQuality.Settings for configuring your IDE and the code style enforcement at build time.
+# It can be safely committed (recommended), or ignored (also safe, but then the settings won't applied initially).
+# To make changes to this file, please create a PR into Soti.CodeQuality.Settings
+
+[*]
+indent_style = space
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# XML files
+[*.{xml,csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj,resx,xaml,props,targets,ruleset,config,nuspec,vsixmanifest,vsctl,wxs,wixproj,wxi}]
+indent_size = 2
+
+[*.json]
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.ps1]
+charset = utf-8-bom
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# Source files
+[*.cs]
+charset = utf-8-bom
+max_line_length = 200

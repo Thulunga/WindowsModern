@@ -1,0 +1,121 @@
+﻿<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.Extensions.Caching.Memory">
+      <Version>9.0.9</Version>
+    </PackageVersion>
+    <PackageVersion Include="Microsoft.NET.Test.Sdk">
+      <Version>17.8.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Moq">
+      <Version>4.20.2</Version>
+    </PackageVersion>
+    <PackageVersion Include="Newtonsoft.Json">
+      <Version>13.0.4</Version>
+    </PackageVersion>
+    <PackageVersion Include="NUnit">
+      <Version>3.14.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="NUnit3TestAdapter">
+      <Version>4.5.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Api.Metadata">
+      <Version>2.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Csv">
+      <Version>3.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Emails">
+      <Version>3.6.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Messaging">
+      <Version>2.2.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Search.Database">
+      <Version>9.6.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Transactions">
+      <Version>2.1.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.CodeQuality.Settings">
+      <Version>0.2.2</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Data.SqlClient">
+      <Version>1.11.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Diagnostics">
+      <Version>3.1.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Logging.MobiControl">
+      <Version>0.0.1</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.AppPolicy.Windows">
+      <Version>16.16.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.DeviceGroupManagement">
+      <Version>4.1.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Devices">
+      <Version>10.1.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Devices.Identity">
+      <Version>3.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Events">
+      <Version>2.2.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Foundation">
+      <Version>4.1.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Mobicontrol.Foundation.Api">
+      <Version>7.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.HostModule">
+      <Version>1.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Security.Authorization.Permissions">
+      <Version>10.17.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Security.Identity">
+      <Version>3.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Security.Management">
+      <Version>16.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Settings">
+      <Version>4.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.Test.Common">
+      <Version>6.22.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.WebApi.Foundation">
+      <Version>3.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.SensitiveDataProtection">
+      <Version>3.3.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Utilities">
+      <Version>6.3.1</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Utilities.Collections">
+      <Version>1.0.1</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.InstallerServices">
+      <Version>3.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="RichardSzalay.MockHttp">
+      <Version>7.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Time">
+      <Version>2.0.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.MobiControl.DeploymentServerExtensions.Contracts">
+      <Version>12.10.0</Version>
+    </PackageVersion>
+    <PackageVersion Include="Soti.Obfuscate.Task">
+      <Version>1.2.14</Version>
+    </PackageVersion>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+{
+  "XmlFileList": [
+    "bin\\Release\\net10.0\\Soti.MobiControl.WindowsModern.Web.Implementation.xml"
+  ],
+  "DllFileList": [
+    "bin\\Release\\net10.0\\Soti.Api.Metadata.dll",
+    "bin\\Release\\net10.0\\Soti.MobiControl.WindowsModern.Web.dll",
+    "bin\\Release\\net10.0\\Soti.MobiControl.WindowsModern.dll",
+    "bin\\Release\\net10.0\\Soti.MobiControl.WindowsModern.Web.Implementation.dll"
+  ],
+  "OutputFileName": "WindowsModernWebImp.json"
+}

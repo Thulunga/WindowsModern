@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Version>8.1.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Soti.Data.SqlClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Soti.MobiControl.WindowsModern.Implementation\Soti.MobiControl.WindowsModern.Implementation.csproj" />
+  </ItemGroup>
+</Project>

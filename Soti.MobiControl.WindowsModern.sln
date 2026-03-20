@@ -1,0 +1,79 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21DC5C9E-A974-4579-95F9-71B6A4EC14FB}"
+	ProjectSection(SolutionItems) = preProject
+		Database.IntegrationTests.config = Database.IntegrationTests.config
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soti.MobiControl.WindowsModern", "Soti.MobiControl.WindowsModern\Soti.MobiControl.WindowsModern.csproj", "{51FBC57F-D252-457C-B36A-0634C8D6F954}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soti.MobiControl.WindowsModern.Implementation", "Soti.MobiControl.WindowsModern.Implementation\Soti.MobiControl.WindowsModern.Implementation.csproj", "{3D4870C7-8745-4CC1-8668-5F909833E6D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soti.MobiControl.WindowsModern.Implementation.Tests", "Soti.MobiControl.WindowsModern.Implementation.Tests\Soti.MobiControl.WindowsModern.Implementation.Tests.csproj", "{34A5FDAB-2A1F-4DCA-B0B2-98EC497E6828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.Web", "Soti.MobiControl.WindowsModern.Web\Soti.MobiControl.WindowsModern.Web.csproj", "{140EA314-8AF8-4827-9111-2EA6C44A8ED6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.Web.Implementation", "Soti.MobiControl.WindowsModern.Web.Implementation\Soti.MobiControl.WindowsModern.Web.Implementation.csproj", "{451DE6DD-7938-4B34-B6EF-E6E531A1A92D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.Web.Implementation.Tests", "Soti.MobiControl.WindowsModern.Web.Implementation.Tests\Soti.MobiControl.WindowsModern.Web.Implementation.Tests.csproj", "{7B25AEAE-2AFF-431A-B44A-2B72F87FE3BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.UpgradeHandler", "Soti.MobiControl.WindowsModern.UpgradeHandler\Soti.MobiControl.WindowsModern.UpgradeHandler.csproj", "{9D2A9C0D-35CE-4D8F-BE7A-2D030E1625F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.UpgradeHandler.Tests", "Soti.MobiControl.WindowsModern.UpgradeHandler.Tests\Soti.MobiControl.WindowsModern.UpgradeHandler.Tests.csproj", "{9C26131F-E7EE-4705-B5DB-5F512BA5C90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soti.MobiControl.WindowsModern.TestDbInjector", "Soti.MobiControl.WindowsModern.TestDbInjector\Soti.MobiControl.WindowsModern.TestDbInjector.csproj", "{14BBC5E5-C3A9-4BF8-B092-A4AFBFC4475D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51FBC57F-D252-457C-B36A-0634C8D6F954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51FBC57F-D252-457C-B36A-0634C8D6F954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51FBC57F-D252-457C-B36A-0634C8D6F954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51FBC57F-D252-457C-B36A-0634C8D6F954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4870C7-8745-4CC1-8668-5F909833E6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4870C7-8745-4CC1-8668-5F909833E6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4870C7-8745-4CC1-8668-5F909833E6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4870C7-8745-4CC1-8668-5F909833E6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34A5FDAB-2A1F-4DCA-B0B2-98EC497E6828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A5FDAB-2A1F-4DCA-B0B2-98EC497E6828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A5FDAB-2A1F-4DCA-B0B2-98EC497E6828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A5FDAB-2A1F-4DCA-B0B2-98EC497E6828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{140EA314-8AF8-4827-9111-2EA6C44A8ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140EA314-8AF8-4827-9111-2EA6C44A8ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140EA314-8AF8-4827-9111-2EA6C44A8ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140EA314-8AF8-4827-9111-2EA6C44A8ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451DE6DD-7938-4B34-B6EF-E6E531A1A92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451DE6DD-7938-4B34-B6EF-E6E531A1A92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451DE6DD-7938-4B34-B6EF-E6E531A1A92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451DE6DD-7938-4B34-B6EF-E6E531A1A92D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B25AEAE-2AFF-431A-B44A-2B72F87FE3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B25AEAE-2AFF-431A-B44A-2B72F87FE3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B25AEAE-2AFF-431A-B44A-2B72F87FE3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B25AEAE-2AFF-431A-B44A-2B72F87FE3BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D2A9C0D-35CE-4D8F-BE7A-2D030E1625F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D2A9C0D-35CE-4D8F-BE7A-2D030E1625F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D2A9C0D-35CE-4D8F-BE7A-2D030E1625F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D2A9C0D-35CE-4D8F-BE7A-2D030E1625F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C26131F-E7EE-4705-B5DB-5F512BA5C90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C26131F-E7EE-4705-B5DB-5F512BA5C90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C26131F-E7EE-4705-B5DB-5F512BA5C90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C26131F-E7EE-4705-B5DB-5F512BA5C90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14BBC5E5-C3A9-4BF8-B092-A4AFBFC4475D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14BBC5E5-C3A9-4BF8-B092-A4AFBFC4475D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14BBC5E5-C3A9-4BF8-B092-A4AFBFC4475D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14BBC5E5-C3A9-4BF8-B092-A4AFBFC4475D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {993C6434-729F-4B52-AE18-5849109B65B3}
+	EndGlobalSection
+EndGlobal

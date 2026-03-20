@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Version>9.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Soti.Api.Metadata" />
+    <PackageReference Include="Soti.MobiControl.Foundation" />
+    <PackageReference Include="Soti.MobiControl.Devices" />
+  </ItemGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>
