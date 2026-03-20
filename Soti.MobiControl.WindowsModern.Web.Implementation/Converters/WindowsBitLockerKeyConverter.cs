@@ -1,5 +1,6 @@
 ﻿using System;
 using Soti.MobiControl.WindowsModern.Web.Contracts;
+using Soti.MobiControl.WindowsModern.Web.Enums;
 using DeviceBitLockerKeyModel = Soti.MobiControl.WindowsModern.Models.DeviceBitLockerKey;
 
 namespace Soti.MobiControl.WindowsModern.Web.Implementation.Converters
@@ -26,6 +27,9 @@ namespace Soti.MobiControl.WindowsModern.Web.Implementation.Converters
                 DriveName = contract.DriveName,
                 RecoveryKeyId = contract.RecoveryKeyId,
                 RecoveryKey = contract.RecoveryKey,
+                DriveEncryptionStatus = (DriveEncryptionStatus)contract.DriveEncryptionStatus,
+                KeyProtectors = (BitLockerKeyProtectors)contract.KeyProtectors,
+                DriveType = (DriveType)contract.DriveType,
             };
         }
     }

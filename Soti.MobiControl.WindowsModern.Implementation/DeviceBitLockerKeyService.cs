@@ -110,7 +110,10 @@ internal sealed class DeviceBitLockerKeyService : IDeviceBitLockerKeyService
             {
                 DriveName = bitLockerKey.DriveName,
                 RecoveryKeyId = bitLockerKey.RecoveryKeyId,
-                RecoveryKey = Encoding.UTF8.GetString(_sensitiveDataEncryptionService.Decrypt(bitLockerKey.RecoveryKey, dataKeysCollection[bitLockerKey.DataKeyId]))
+                RecoveryKey = Encoding.UTF8.GetString(_sensitiveDataEncryptionService.Decrypt(bitLockerKey.RecoveryKey, dataKeysCollection[bitLockerKey.DataKeyId])),
+                DriveEncryptionStatus = bitLockerKey.DriveEncryptionStatus,
+                KeyProtectors = bitLockerKey.KeyProtectors,
+                DriveType = bitLockerKey.DriveType
             }).ToList();
     }
 

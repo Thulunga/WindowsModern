@@ -4,7 +4,7 @@ using Soti.MobiControl.Events.ModelInterfaces;
 
 namespace Soti.MobiControl.WindowsModern.Web.Implementation.Events
 {
-    [EventMetadata("ViewedBitLockerRecoveryKeys", "Requested to view the BitLocker Recovery Key(s)", "{0} has requested to view the BitLocker Recovery Key(s)", AlertManagerType.Device)]
+    [EventMetadata("ViewedBitLockerRecoveryKeys", "Administrator has requested to view the BitLocker Recovery Key(s)", "Administrator has requested to view the BitLocker Recovery Key(s)", AlertManagerType.Device)]
     internal sealed class ViewedBitLockerRecoveryKeysEvent : UserOriginatedEvent, IDeviceBoundEvent, IParameterizedEvent
     {
         internal ViewedBitLockerRecoveryKeysEvent(int userPrincipalId, string userName, int deviceId, string devId)

@@ -115,18 +115,23 @@ public sealed class WindowsDeviceController : ControllerBase, IWindowsDeviceCont
     /// </summary>
     /// <remarks>
     /// This API returns the BitLocker keys information for a device.
+    /// Each volume entry includes the drive letter, recovery key id, decrypted recovery key, drive encryption status,
+    /// key protectors (flags enum), and drive type.
     /// <br/>
     /// <br/>
     /// Requires the caller be granted the "View Decrypted Personal Recovery Key" permission.
+    /// <br/>
+    /// BLE event: "Administrator has requested to view the BitLocker Recovery Key(s)" is logged when this view action is performed.
     /// <br/>
     /// <b>(Available Since MobiControl v2024.0.0)</b>
     /// <br/>
     /// </remarks>
     /// <param name="deviceId">The device identifier.</param>
     /// <response code="200">Success.</response>
-    /// <response code="400">Contract Validation Failed.</response>
-    /// <response code="401">Unauthorized.</response>
-    /// <response code="403">Forbidden.</response>
+    /// <response code="400">Failed to 'fetch BitLocker keys' because the contract is invalid. Please check MS logs for more details.</response>
+    /// <response code="401">Failed to 'fetch BitLocker keys' due to unauthorized access or invalid reference to the specified object. Please check MS logs for more details.</response>
+    /// <response code="403">Failed to 'fetch BitLocker keys' due to unauthorized access or invalid reference to the specified object. Please check MS logs for more details.</response>
+    /// <response code="500">Failed to 'fetch BitLocker keys'. Please check MS logs for more details.</response>
     [HttpPost]
     [Route("{deviceId}/actions/fetchBitLockerKeys")]
     [RegisterOperation(OperationCode = "FetchWindowsModernBitLockerKeys")]

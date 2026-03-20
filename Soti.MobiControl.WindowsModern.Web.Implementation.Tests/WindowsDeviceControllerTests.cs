@@ -258,7 +258,10 @@ public class WindowsDeviceControllerTests
         {
             DriveName = "C",
             RecoveryKeyId = Guid.Parse(recoveryKeyId),
-            RecoveryKey = recoveryKey
+            RecoveryKey = recoveryKey,
+            DriveEncryptionStatus = Models.Enums.DriveEncryptionStatus.Encrypted,
+            KeyProtectors = Models.Enums.BitLockerKeyProtectors.Tpm | Models.Enums.BitLockerKeyProtectors.RecoveryPassword,
+            DriveType = Models.Enums.DriveType.System
         };
         _accessControlManagerMock.Setup(a => a.EnsureHasAccessRight(It.IsAny<DeviceGroupPermission>(), SecurityAssetType.Device, DeviceId));
         _deviceKeyInformationRetrievalServiceMock.Setup(a => a.GetDeviceKeyInformation(_devId)).Returns(new DeviceKeyInformation(DeviceId, _devId, DevicePlatform.WindowsDesktop10RS1));
@@ -272,12 +275,65 @@ public class WindowsDeviceControllerTests
         Assert.AreEqual(result.DriveName, bitLockerKeyModel.DriveName);
         Assert.AreEqual(result.RecoveryKeyId, bitLockerKeyModel.RecoveryKeyId);
         Assert.AreEqual(result.RecoveryKey, bitLockerKeyModel.RecoveryKey);
+        Assert.AreEqual(result.DriveEncryptionStatus, Soti.MobiControl.WindowsModern.Web.Enums.DriveEncryptionStatus.Encrypted);
+        Assert.AreEqual(result.KeyProtectors, Soti.MobiControl.WindowsModern.Web.Enums.BitLockerKeyProtectors.Tpm | Soti.MobiControl.WindowsModern.Web.Enums.BitLockerKeyProtectors.RecoveryPassword);
+        Assert.AreEqual(result.DriveType, Soti.MobiControl.WindowsModern.Web.Enums.DriveType.System);
 
         _deviceKeyInformationRetrievalServiceMock.Verify(a => a.GetDeviceKeyInformation(_devId), Times.Once);
         _deviceBitLockerKeyServiceMock.Verify(a => a.GetBitLockerKeys(DeviceId), Times.Once);
         _eventDispatcherMock.Verify(a => a.DispatchEvent(It.IsAny<IEvent>()), Times.Once);
         _userIdentityProviderMock.Verify(a => a.GetUserIdentity(), Times.Exactly(2));
         _accessControlManagerMock.Verify(a => a.EnsureHasAccessRight(It.IsAny<DeviceGroupPermission>(), SecurityAssetType.Device, DeviceId), Times.Once);
+    }
+
+    [Test]
+    public void Scenario_FetchBitLockerKeys_EncryptedSystemDrive_ReturnsExtendedFields()
+    {
+        GetWindowsBitLockerKeys_Tests();
+    }
+
+    [Test]
+    public void Scenario_ViewRecoveryKey_LogsEvent()
+    {
+        GetWindowsBitLockerKeys_Tests();
+
+        _eventDispatcherMock.Verify(a => a.DispatchEvent(It.IsAny<IEvent>()), Times.Once);
+    }
+
+    [Test]
+    public void Scenario_FetchBitLockerKeys_MultipleDriveTypes_ReturnsAllVolumes()
+    {
+        var volumes = new List<DeviceBitLockerKey>
+        {
+            new() { DriveName = "C", RecoveryKeyId = Guid.NewGuid(), RecoveryKey = "system", DriveType = Models.Enums.DriveType.System },
+            new() { DriveName = "D", RecoveryKeyId = Guid.NewGuid(), RecoveryKey = "fixed", DriveType = Models.Enums.DriveType.Fixed },
+            new() { DriveName = "E", RecoveryKeyId = Guid.NewGuid(), RecoveryKey = "removable", DriveType = Models.Enums.DriveType.Removable }
+        };
+
+        _accessControlManagerMock.Setup(a => a.EnsureHasAccessRight(It.IsAny<DeviceGroupPermission>(), SecurityAssetType.Device, DeviceId));
+        _deviceKeyInformationRetrievalServiceMock.Setup(a => a.GetDeviceKeyInformation(_devId)).Returns(new DeviceKeyInformation(DeviceId, _devId, DevicePlatform.WindowsDesktop10RS1));
+        _userIdentityProviderMock.Setup(a => a.GetUserIdentity()).Returns(new Security.Identity.Model.UserIdentity());
+        _deviceBitLockerKeyServiceMock.Setup(a => a.GetBitLockerKeys(DeviceId)).Returns(volumes);
+        _eventDispatcherMock.Setup(a => a.DispatchEvent(It.IsAny<IEvent>()));
+
+        var result = _controller.RequestWindowsBitLockerKeys(_devId).ToList();
+
+        Assert.That(result, Has.Count.EqualTo(3));
+    }
+
+    [Test]
+    public void Scenario_FetchBitLockerKeys_NoVolumes_ReturnsEmptyCollection()
+    {
+        _accessControlManagerMock.Setup(a => a.EnsureHasAccessRight(It.IsAny<DeviceGroupPermission>(), SecurityAssetType.Device, DeviceId));
+        _deviceKeyInformationRetrievalServiceMock.Setup(a => a.GetDeviceKeyInformation(_devId)).Returns(new DeviceKeyInformation(DeviceId, _devId, DevicePlatform.WindowsDesktop10RS1));
+        _userIdentityProviderMock.Setup(a => a.GetUserIdentity()).Returns(new Security.Identity.Model.UserIdentity());
+        _deviceBitLockerKeyServiceMock.Setup(a => a.GetBitLockerKeys(DeviceId)).Returns(Array.Empty<DeviceBitLockerKey>());
+        _eventDispatcherMock.Setup(a => a.DispatchEvent(It.IsAny<IEvent>()));
+
+        var result = _controller.RequestWindowsBitLockerKeys(_devId).ToList();
+
+        Assert.That(result, Is.Empty);
+        _eventDispatcherMock.Verify(a => a.DispatchEvent(It.IsAny<IEvent>()), Times.Once);
     }
 
     [TestCaseSource(nameof(GetInvalidDeviceIdOrSid))]
