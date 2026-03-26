@@ -9,6 +9,7 @@ using Soti.MobiControl.DeploymentServerExtensions.Contracts;
 using Soti.MobiControl.Messaging;
 using Soti.MobiControl.WindowsModern.Implementation.Models;
 using Soti.MobiControl.WindowsModern.Implementation.Providers;
+using Soti.MobiControl.WindowsModern.Models.Enums;
 using Soti.SensitiveDataProtection;
 using Soti.SensitiveDataProtection.Model;
 
