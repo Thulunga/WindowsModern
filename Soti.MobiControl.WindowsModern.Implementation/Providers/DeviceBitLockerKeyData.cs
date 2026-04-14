@@ -1,4 +1,5 @@
 ﻿using System;
+using Soti.MobiControl.WindowsModern.Models.Enums;
 
 namespace Soti.MobiControl.WindowsModern.Implementation.Providers
 {
@@ -26,5 +27,20 @@ namespace Soti.MobiControl.WindowsModern.Implementation.Providers
         /// Gets or sets the data key identifier.
         /// </summary>
         public int DataKeyId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the drive encryption status.
+        /// </summary>
+        public DriveEncryptionStatus DriveEncryptionStatus { get; set; }
+
+        /// <summary>
+        /// Gets or sets the key protectors.
+        /// </summary>
+        public BitLockerKeyProtectors KeyProtectors { get; set; }
+
+        /// <summary>
+        /// Gets or sets the drive type.
+        /// </summary>
+        public DriveType DriveType { get; set; }
     }
 }

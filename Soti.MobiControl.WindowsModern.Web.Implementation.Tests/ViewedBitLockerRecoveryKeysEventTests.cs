@@ -20,5 +20,6 @@ namespace Soti.MobiControl.WindowsModern.Web.Implementation.Tests
             Assert.That(testEvent.DeviceId, Is.EqualTo(100001));
             Assert.That(testEvent.EventAdditionalParameters, Is.EqualTo(new[] { "admin" }));
         }
+
     }
 }

@@ -9,6 +9,7 @@ using Soti.MobiControl.DeploymentServerExtensions.Contracts;
 using Soti.MobiControl.Messaging;
 using Soti.MobiControl.WindowsModern.Implementation.Models;
 using Soti.MobiControl.WindowsModern.Implementation.Providers;
+using Soti.MobiControl.WindowsModern.Models.Enums;
 using Soti.SensitiveDataProtection;
 using Soti.SensitiveDataProtection.Model;
 
@@ -144,7 +145,10 @@ public class DeviceBitLockerKeyServiceTests
             DriveName = "C",
             RecoveryKeyId = Guid.NewGuid(),
             RecoveryKey = Encoding.UTF8.GetBytes("testKey"),
-            DataKeyId = 1
+            DataKeyId = 1,
+            DriveEncryptionStatus = DriveEncryptionStatus.Encrypted,
+            KeyProtectors = BitLockerKeyProtectors.Tpm | BitLockerKeyProtectors.RecoveryPassword,
+            DriveType = DriveType.System
         };
 
         _deviceBitLockerKeyProviderMock.Setup(provider => provider.GetBitLockerKeys(DeviceId)).Returns(new List<DeviceBitLockerKeyData> { keyData });
@@ -167,6 +171,9 @@ public class DeviceBitLockerKeyServiceTests
         Assert.IsTrue(result.First().DriveName.Equals(keyData.DriveName));
         Assert.IsTrue(result.First().RecoveryKeyId.Equals(keyData.RecoveryKeyId));
         Assert.IsTrue(result.First().RecoveryKey.Equals(Encoding.UTF8.GetString(keyData.RecoveryKey)));
+        Assert.IsTrue(result.First().DriveEncryptionStatus.Equals(keyData.DriveEncryptionStatus));
+        Assert.IsTrue(result.First().KeyProtectors.Equals(keyData.KeyProtectors));
+        Assert.IsTrue(result.First().DriveType.Equals(keyData.DriveType));
     }
 
     [TestCase("")]

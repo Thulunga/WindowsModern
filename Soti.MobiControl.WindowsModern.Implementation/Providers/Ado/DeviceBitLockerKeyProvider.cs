@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using Soti.Data.SqlClient;
+using Soti.MobiControl.WindowsModern.Models.Enums;
 
 namespace Soti.MobiControl.WindowsModern.Implementation.Providers.Ado
 {
@@ -133,7 +134,10 @@ namespace Soti.MobiControl.WindowsModern.Implementation.Providers.Ado
                 DriveName = record.GetOrdinal("DriveName"),
                 RecoveryKeyId = record.GetOrdinal("RecoveryKeyId"),
                 RecoveryKey = record.GetOrdinal("RecoveryKeyContent"),
-                DataKeyId = record.GetOrdinal("DataKeyId")
+                DataKeyId = record.GetOrdinal("DataKeyId"),
+                DriveEncryptionStatus = TryGetOrdinal(record, "VolumeEncryptionStatusId"),
+                KeyProtectors = TryGetOrdinal(record, "BitLockerKeyProtectorTypes"),
+                DriveType = TryGetOrdinal(record, "VolumeTypeId")
             };
 
             return mapping;
@@ -146,8 +150,29 @@ namespace Soti.MobiControl.WindowsModern.Implementation.Providers.Ado
                 DriveName = record.GetString(mapping.DriveName),
                 RecoveryKeyId = record.GetGuid(mapping.RecoveryKeyId),
                 RecoveryKey = (byte[])record.GetValue(mapping.RecoveryKey),
-                DataKeyId = record.GetInt32(mapping.DataKeyId)
+                DataKeyId = record.GetInt32(mapping.DataKeyId),
+                DriveEncryptionStatus = mapping.DriveEncryptionStatus >= 0 && !record.IsDBNull(mapping.DriveEncryptionStatus)
+                    ? (DriveEncryptionStatus)record.GetByte(mapping.DriveEncryptionStatus)
+                    : DriveEncryptionStatus.None,
+                KeyProtectors = mapping.KeyProtectors >= 0 && !record.IsDBNull(mapping.KeyProtectors)
+                    ? (BitLockerKeyProtectors)record.GetByte(mapping.KeyProtectors)
+                    : BitLockerKeyProtectors.None,
+                DriveType = mapping.DriveType >= 0 && !record.IsDBNull(mapping.DriveType)
+                    ? (DriveType)record.GetByte(mapping.DriveType)
+                    : DriveType.Unknown
             };
+        }
+
+        private static int TryGetOrdinal(IDataRecord record, string columnName)
+        {
+            try
+            {
+                return record.GetOrdinal(columnName);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return -1;
+            }
         }
 
         private static IReadOnlyDictionary<int, bool> ReadCollectionForIsBitLockerKeyAvailable(IDataReader reader)
@@ -194,6 +219,12 @@ namespace Soti.MobiControl.WindowsModern.Implementation.Providers.Ado
             public int RecoveryKey { get; internal set; }
 
             public int DataKeyId { get; internal set; }
+
+            public int DriveEncryptionStatus { get; internal set; }
+
+            public int KeyProtectors { get; internal set; }
+
+            public int DriveType { get; internal set; }
         }
     }
 }
